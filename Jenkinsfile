@@ -14,14 +14,6 @@ pipeline {
       }
     }
 
-      stage('Performance Test') {
-          agent {
-              docker { image maven:3-alpine }
-          }
-          steps {
-              sh: mvn gatling:test
-          }
-      }
     stage('Docker Build') {
       agent any
       steps {
