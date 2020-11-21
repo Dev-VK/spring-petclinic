@@ -24,5 +24,8 @@ val scn = scenario("Get Owner")
       atOnceUsers(1)
       )
     .protocols(httpProtocol)
-    .assertions(forAll.failedRequests.percent.lte(0)))
+
+    setUp(scn)assertions(
+        global.failedRequests.percent.lte(0))
+    )
 }
