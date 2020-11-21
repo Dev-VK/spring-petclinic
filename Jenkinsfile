@@ -26,6 +26,7 @@ pipeline {
     }
 
      stage("Run Gatling") {
+         agent {
          steps {
              sh 'mvn gatling:test'
          }
@@ -34,6 +35,7 @@ pipeline {
                  gatlingArchive()
              }
          }
+     }
      }
     stage('Docker Push') {
       agent any
