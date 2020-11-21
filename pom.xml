@@ -20,9 +20,7 @@
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-      <gatling.version>${project.version}</gatling.version>
 
-      <gatling-plugin.version>3.0.0</gatling-plugin.version>
 
 
       <!-- Web dependencies -->
@@ -136,11 +134,22 @@
       <optional>true</optional>
     </dependency>
 
-      <!-- https://mvnrepository.com/artifact/io.gatling.highcharts/gatling-charts-highcharts -->
       <dependency>
           <groupId>io.gatling.highcharts</groupId>
           <artifactId>gatling-charts-highcharts</artifactId>
-          <version>3.4.1</version>
+          <version>3.3.1</version>
+      </dependency>
+
+      <dependency>
+          <groupId>io.gatling</groupId>
+          <artifactId>gatling-app</artifactId>
+          <version>3.3.1</version>
+      </dependency>
+
+      <dependency>
+          <groupId>io.gatling</groupId>
+          <artifactId>gatling-recorder</artifactId>
+          <version>3.3.1</version>
       </dependency>
 
   </dependencies>
@@ -153,6 +162,9 @@
             <groupId>io.gatling</groupId>
             <artifactId>gatling-maven-plugin</artifactId>
             <version>3.1.0</version>
+            <configuration>
+                <simulationClass>performancetests.SubmitForm</simulationClass>
+            </configuration>
         </plugin>
 <plugin>
         <groupId>net.alchim31.maven</groupId>

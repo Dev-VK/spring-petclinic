@@ -7,21 +7,17 @@ import scala.concurrent.duration._
 class SubmitForm extends Simulation {
 
   // specify the URL to test
-  val devUrl = "http://dev.timshort.liatr.io/personal-banking/"
+  val devUrl = "http://localhost:8081"
 
   // specify the protocol
   val httpProtocol = http.baseUrl(devUrl)
 
   // define the scenario
-  val scn = scenario("Submit a contact form")
-    .exec(http("GetHomePage").get("/"))
-    .pause(5)
-    .exec(http("PostForm") // Submit form
-      .post("#")
-      .formParam("name", "John Adams")
-      .formParam("email", "johnadams@test.liatr.io")
-      .formParam("message", "I would like more information on your products")
-      )
+val scn = scenario("Get Owner")
+        .exec(http("request_0")
+            .get("/owners?lastName=Jenkins"))
+        .pause(5)
+
 
   // define users and execute the scenario
   setUp(scn.inject(
