@@ -26,15 +26,17 @@ pipeline {
     }
 
      stage("Run Gatling") {
-         agent any
+         agent{ docker{image 'maven:3.5.0'}
+
+         }
          steps {
              sh 'mvn gatling:test'
          }
-         post {
-             always {
-                 gatlingArchive()
-             }
-         }
+//         post {
+//             always {
+//                 gatlingArchive()
+//             }
+//         }
      }
 
     stage('Docker Push') {
