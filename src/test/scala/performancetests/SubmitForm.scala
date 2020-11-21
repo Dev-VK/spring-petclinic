@@ -23,9 +23,9 @@ val scn = scenario("Get Owner")
   setUp(scn.inject(
       atOnceUsers(1)
       )
-    .protocols(httpProtocol)
+    .protocols(httpProtocol))
 
-    setUp(scn)assertions(
+    setUp(scn.assertions(
         global.failedRequests.percent.lte(0))
     )
 }
