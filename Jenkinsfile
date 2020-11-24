@@ -25,7 +25,7 @@ pipeline {
       }
     }
 
-     stage("Run Gatling") {
+     stage("Performance Test") {
          agent{ docker{image 'maven:3.5.0'}
 
          }
